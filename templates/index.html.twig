@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProductController!
+{% endblock %}
+
+{% block body %}
+	<h1 id="ShopName">Symfony-Shop</h1>
+	<div class="product-list">
+	{% for p in products %}
+		<div class=product>
+		{% if p.image is not empty %}
+			<img src="{{ asset('uploads/' ~ p.image) }}" style="max-width:100px;">
+		{% endif %}
+		<a href="{{ path('app_product_view', {id: p.id}) }}">
+			<p>{{p.name}}</p>		
+		</a>
+		<p>{{p.price}}$</p>
+		</div>
+	{% else %}
+		<p>Aucun produit</p>
+	{% endfor %}
+	</div>
+	
+{% endblock %}

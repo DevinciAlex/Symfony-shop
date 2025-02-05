@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ 'category.list'|trans }}
+{% endblock %}
+
+{% block body %}
+	<h1>{{ 'category.list'|trans }}</h1>
+
+	{{ dump(categories) }}
+
+	{% if is_granted('ROLE_ADMIN') %}
+		{% for c in categories %}
+			<p>
+				<a href="{{ path('app_categories', {id: c.id}) }}">
+					{{ c.name }}
+				</a>
+				{{ c.description }}
+
+				{% if is_granted('ROLE_ADMIN') %}
+					<form action="{{path('app_product_delete', {id: c.id})}}" method="POST">
+						<input type="hidden" name="csrf" value="{{ csrf_token('delete' ~ c.id) }}">
+						<input type="submit" value="Delete">
+					</form>
+				{% endif %}
+
+			</p>
+		{% else %}
+			<p>Aucune catégorie</p>
+		{% endfor %}
+	{% else %}
+		<p>Vous n'êtes pas admin</p>
+	{% endif %}
+{% endblock %}

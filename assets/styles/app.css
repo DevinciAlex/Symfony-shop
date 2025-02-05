@@ -1,0 +1,64 @@
+
+* {
+    margin:0;
+    padding: 0;
+    color: black;
+}
+
+body {
+    background-color: white;
+}
+
+.success{
+    background-color: lightgreen;
+}
+
+.error{
+    background-color: lightcoral;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    background-color: rgb(56, 62, 66);
+    width: 100%;
+}
+
+header nav ul a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.7rem;
+}
+
+.menu {
+    display: flex;
+    gap:1rem;
+    margin: 0.3rem;
+}
+
+.accueil {
+    margin: 0.3rem;
+}
+.product-list {
+    display: flex;
+    gap : 2rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-left: 1rem;
+}
+
+.product {
+    display: block;
+}
+
+#ShopName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8rem;
+    background-image: url("\img\Wood.jpg");
+    background-size: cover;
+    color: bisque;
+    margin-bottom: 3rem;
+}
